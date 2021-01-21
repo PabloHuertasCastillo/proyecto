@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NavComponent } from './componentes/nav/nav.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-loteria.component';
+import { HolaComponent } from './componentes/hola/hola.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-l
     AboutComponent,
     NavComponent,
     LoteriaComponent,
-    GenerarLoteriaComponent
+    GenerarLoteriaComponent,
+    HolaComponent
   ],
   imports: [
     BrowserModule,
