@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import "@angular/common/locales/global/es";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,9 @@ import { NavComponent } from './componentes/nav/nav.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-loteria.component';
 import { HolaComponent } from './componentes/hola/hola.component';
+import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
+import { NumerosPipe } from './pipes/numeros.pipe';
+import { DniPipe } from './pipes/dni.pipe';
 
 @NgModule({
   declarations: [
@@ -19,14 +23,19 @@ import { HolaComponent } from './componentes/hola/hola.component';
     NavComponent,
     LoteriaComponent,
     GenerarLoteriaComponent,
-    HolaComponent
+    HolaComponent,
+    TuberiasComponent,
+    NumerosPipe,
+    DniPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {provide:LOCALE_ID, useValue:"es"}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
