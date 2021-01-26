@@ -1,0 +1,58 @@
+<h2>Estructuras de control con IfElse</h2>
+
+<label for="verdad">Verdad</label>
+<input type="checkbox" id="verdad" [(ngModel)]="verdad">
+<h5>{{verdad? "Es verdad" : "Es mentira"}} Con ternario</h5>
+
+<hr>
+
+<h5 *ngIf="verdad; else mentira">Es verdad con ngIf</h5>
+<ng-template #mentira>
+    <h5>Es mentira con ngIf</h5>
+</ng-template>
+
+<hr>
+
+<label for="edad">Introduce tu edad</label>
+<input type="number" id="edad" [(ngModel)]="edad">
+
+<h5 *ngIf="edad<18 ;  else mayor18"> Es menor de edad </h5>
+
+<ng-template #mayor18>
+    <ng-container *ngIf="edad>=18 && edad<30; else mayor30">
+        <h5>Es joven</h5>
+    </ng-container>
+</ng-template>
+
+<ng-template #mayor30>
+    <ng-container>
+        <h5>Es mayor</h5>
+    </ng-container>
+</ng-template>
+
+<hr>
+<h5>If-Else con microsintaxis</h5>
+<ng-template [ngIf]="edad<18" [ngIfElse]="adulto">
+    <h5>Es menor de 18 años</h5>
+</ng-template>
+
+<ng-template #adulto>
+    <ng-template [ngIf]="edad<30" [ngIfElse]="adulto30">
+        <h5>Es mayor de 18 años</h5>
+    </ng-template>
+</ng-template>
+
+<ng-template #adulto30>
+    <h5>Es mayor de 30 años</h5>
+</ng-template>
+<hr>
+<h2>Estructura For Avanzado</h2>
+<ul>
+    <li *ngFor="let numero of [0,11,22,33,44,55];
+                let indice = index; let impar = odd;
+                let primero = first; let ultimo = last;
+                let cuenta = count" [ngClass]="{'text-danger' : impar , 'bg-primary' : primero }" id="elemento{{indice}}" (click)="muestraLog(this.indice, this.numero, this.cuenta)">
+
+        En la posicion {{indice}} de {{cuenta-1}}, que es: {{ impar? "impar" : "par"}} , está el número {{numero}}, {{ primero? " que es el ultimo elemento del array" : ""}} {{ ultimo? " que es el ultimo elemento del array" : ""}}
+    </li>
+</ul>
