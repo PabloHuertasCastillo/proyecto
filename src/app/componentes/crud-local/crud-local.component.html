@@ -1,6 +1,17 @@
+<h5>Insertar Nota</h5>
 <input type="text" placeholder="titulo" [(ngModel)]="notaNueva.titulo">
 <input type="text" placeholder="contenido" [(ngModel)]="notaNueva.contenido">
-<button (click)="insertarNota()">Insertar nota</button>
+<button class="btn btn-primary mx-2" (click)="insertarNota()">Insertar nota</button><br>
+<hr>
+<h5>Nota seleccionada</h5>
+<p>
+    <input type="text" placeholder="titulo" [(ngModel)]="notaSeleccionada.titulo">
+    <input type="text" placeholder="contenido" [(ngModel)]="notaSeleccionada.contenido">
+</p>
+
+<button class="btn btn-primary" (click)="editarNota(notaSeleccionada)">Editar Nota</button>
+<button class="btn btn-danger" (click)="borrarNota(notaSeleccionada)">Borrar Nota</button>
+
 
 
 <table class="table my-5">
@@ -12,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let nota of notas">
+        <tr *ngFor="let nota of notas" (click)="notaSeleccionada =  nota">
             <td scope="row">{{nota.id}}</td>
             <td>{{nota.titulo}}</td>
             <td>{{nota.contenido}}</td>
