@@ -8,6 +8,7 @@ import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
+import { CrudContactosComponent } from './componentes/crud-contactos/crud-contactos.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: "estructuras", component:EstructurasComponent},
   {path: "formulario", component:FormularioClaseComponent},
   {path: "crud", component:CrudLocalComponent},
+  {path: "contactos", component:CrudContactosComponent},
 
   {path: "**", component:HomeComponent},
 ];

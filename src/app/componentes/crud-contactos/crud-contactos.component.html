@@ -1,0 +1,45 @@
+<h5>Insertar Contacto</h5>
+<input type="text" placeholder="Nombre" [(ngModel)]="nuevoContacto.nombre">
+<input type="text" placeholder="Apellido (Opcional)" [(ngModel)]="nuevoContacto.apellido">
+<input type="text" placeholder="Edad (Opcional)" [(ngModel)]="nuevoContacto.edad">
+<input type="text" placeholder="Número" [(ngModel)]="nuevoContacto.numero">
+<input type="text" placeholder="Número trabajo (Opcional)" [(ngModel)]="nuevoContacto.numeroTrabajo">
+
+<button class="btn btn-primary mx-2" (click)="insertarContacto()">Insertar nota</button><br>
+<hr>
+<h5>Contacto seleccionado</h5>
+<p>
+    <input type="text" placeholder="Nombre" [(ngModel)]="contactoSeleccionada.nombre">
+    <input type="text" placeholder="Apellido (Opcional)" [(ngModel)]="contactoSeleccionada.apellido">
+    <input type="text" placeholder="Edad (Opcional)" [(ngModel)]="contactoSeleccionada.edad">
+    <input type="text" placeholder="Número" [(ngModel)]="contactoSeleccionada.numero">
+    <input type="text" placeholder="Número trabajo (Opcional)" [(ngModel)]="contactoSeleccionada.numeroTrabajo">
+</p>
+
+<button class="btn btn-primary" (click)="editarContacto(contactoSeleccionada)">Editar Contacto</button>
+<button class="btn btn-danger" (click)="borrarContacto(contactoSeleccionada)">Borrar Contacto</button>
+
+
+
+<table class="table my-5">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>nombre</th>
+            <th>apellido</th>
+            <th>Edad</th>
+            <th>Número</th>
+            <th>NúmeroTrabajo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contacto of contactos; let indiceSel = index;" (click)="contactoSeleccionada = contacto; indiceSeleccionado = indiceSel">
+            <td scope="row">{{contacto.id}}</td>
+            <td>{{contacto.nombre}}</td>
+            <td>{{contacto.apellido}}</td>
+            <td>{{contacto.edad}}</td>
+            <td>{{contacto.numero}}</td>
+            <td>{{contacto.numeroTrabajo}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -17,6 +17,7 @@ import { DniPipe } from './pipes/dni.pipe';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
+import { CrudContactosComponent } from './componentes/crud-contactos/crud-contactos.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CrudLocalComponent } from './componentes/crud-local/crud-local.componen
     DniPipe,
     EstructurasComponent,
     FormularioClaseComponent,
-    CrudLocalComponent
+    CrudLocalComponent,
+    CrudContactosComponent
   ],
   imports: [
     BrowserModule,
