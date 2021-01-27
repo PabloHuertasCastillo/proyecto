@@ -20,11 +20,6 @@ export class NumerosPipe implements PipeTransform {
       return arraynumeros[value];
     }
 
-    if (args[0]=="letras") {
-      let arraynumeros = ["Cero", "Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez"];
-      return arraynumeros[value];
-    }
-
     return value * value;
   }
 
