@@ -78,16 +78,18 @@
 
 <hr>
 
-<input class="mx-3" type="number" [(ngModel)]="op1">
-<select class="mx-3" [(ngModel)]="operacion" name="operacion" id="arraynumeros">
-    <option value="*">*</option>
-    <option value="/">/</option>
-    <option value="+">+</option>
-    <option value="-">-</option>
+<input placeholder="numero 1" class="mx-3" type="number" [(ngModel)]="op1">
+<select [(ngModel)]="operador" class="mx-3" name="operacion" id="arraynumeros">
+    <option *ngFor="let operacion of operaciones" value="{{operacion}}">{{operacion}}</option>
 </select>
-<input class="mx-3" type="number" [(ngModel)]="op2">
-<button class="btn btn-primary" type="submit" (click)=realizaOperacion()>Calcular</button>
-<h5>{{resultado}}</h5>
+<input placeholder="numero 2" class="mx-3" type="number" [(ngModel)]="op2">
 
+<div [ngSwitch]="operador">
+    <span *ngSwitchCase='"+"'>{{op1 + op2}}</span>
+    <span *ngSwitchCase='"-"'>{{op1 - op2}}</span>
+    <span *ngSwitchCase='"*"'>{{op1 * op2}}</span>
+    <span *ngSwitchCase='"/"'>{{op1 / op2}}</span>
+    <span *ngSwitchDefault>Selecciona una operacion</span>
+</div>
 
 <hr>

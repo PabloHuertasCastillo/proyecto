@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/Modelos/usuario';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,21 @@ export class HomeComponent implements OnInit {
     },
     {
       nombre : "Pepe",
+      apellido: "Hernandez"
+    }
+  ]
+
+  usuarios2: Usuario [] = [
+    {
+      nombre : "Juan",
+      apellido: "Fernandez"
+    },
+    {
+      nombre : "Jesus",
+      apellido: "Huertas"
+    },
+    {
+      nombre : "Jaime",
       apellido: "Hernandez"
     }
   ]

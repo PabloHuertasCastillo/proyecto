@@ -15,8 +15,8 @@ export class EstructurasComponent implements OnInit {
 
   op1: number;
   op2: number;
-  resultado: number;
-  operacion: string;
+  operador:string;
+  operaciones: string [] = ["*","/","+","-"];
 
   constructor() { }
 
@@ -32,21 +32,21 @@ export class EstructurasComponent implements OnInit {
 
   }
 
-  realizaOperacion() {
-    switch (this.operacion) {
-      case "+":
-        this.resultado = this.op1 + this.op2;
-        break;
-      case "-":
-        this.resultado = this.op1 - this.op2;
-        break;
-      case "/":
-        this.resultado = this.op1 / this.op2;
-        break;
-      case "*":
-        this.resultado = this.op1 * this.op2;
-        break;
-    }
-  }
+  // realizaOperacion() {
+  //   switch (this.operaciones) {
+  //     case "+":
+  //       this.resultado = this.op1 + this.op2;
+  //       break;
+  //     case "-":
+  //       this.resultado = this.op1 - this.op2;
+  //       break;
+  //     case "/":
+  //       this.resultado = this.op1 / this.op2;
+  //       break;
+  //     case "*":
+  //       this.resultado = this.op1 * this.op2;
+  //       break;
+  //   }
+  // }
 
 }
