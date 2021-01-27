@@ -6,6 +6,7 @@ import { HomeComponent } from './componentes/home/home.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { TuberiasComponent } from './componentes/tuberias/tuberias.component';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
+import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: "hola/:nombre/:apellidos", component:HolaComponent},
   {path: "tuberias", component:TuberiasComponent},
   {path: "estructuras", component:EstructurasComponent},
+  {path: "formulario", component:FormularioClaseComponent},
   {path: "**", component:HomeComponent},
 ];
 

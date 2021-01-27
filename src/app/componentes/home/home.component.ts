@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/Modelos/usuario';
 
 @Component({
@@ -6,7 +6,7 @@ import { Usuario } from 'src/app/Modelos/usuario';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
@@ -42,6 +42,8 @@ export class HomeComponent implements OnInit {
     }
   ]
 
+  usuario3: Usuario = new Usuario("Pablo", "Huertas", 27);
+
   numero1 = 0;
   numero2 = 0;
 
@@ -56,6 +58,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    alert('Hasta luego');
   }
 
 }
