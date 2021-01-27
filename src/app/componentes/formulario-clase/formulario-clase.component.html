@@ -1,6 +1,6 @@
 <input type="text" placeholder="nombre" [(ngModel)]="user.nombre"><br>
 <input type="text" placeholder="apellido" [(ngModel)]="user.apellido"><br>
-<input type="text" placeholder="edad" [(ngModel)]="user.edad">
+<input type="text" placeholder="edad" [(ngModel)]="user.edad"><br>
 <button (click)="insertarUsuarios()">Mostrar usuario</button>
 
 <ul *ngFor="let usuario of users" (click)="mostrarUsuario(usuario)">

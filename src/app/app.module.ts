@@ -16,6 +16,7 @@ import { NumerosPipe } from './pipes/numeros.pipe';
 import { DniPipe } from './pipes/dni.pipe';
 import { EstructurasComponent } from './componentes/estructuras/estructuras.component';
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
+import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormularioClaseComponent } from './componentes/formulario-clase/formula
     NumerosPipe,
     DniPipe,
     EstructurasComponent,
-    FormularioClaseComponent
+    FormularioClaseComponent,
+    CrudLocalComponent
   ],
   imports: [
     BrowserModule,

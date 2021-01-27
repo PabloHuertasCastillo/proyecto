@@ -1,0 +1,21 @@
+<input type="text" placeholder="titulo" [(ngModel)]="notaNueva.titulo">
+<input type="text" placeholder="contenido" [(ngModel)]="notaNueva.contenido">
+<button (click)="insertarNota()">Insertar nota</button>
+
+
+<table class="table my-5">
+    <thead>
+        <tr>
+            <th>Id nota</th>
+            <th>Título</th>
+            <th>Contenido</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let nota of notas">
+            <td scope="row">{{nota.id}}</td>
+            <td>{{nota.titulo}}</td>
+            <td>{{nota.contenido}}</td>
+        </tr>
+    </tbody>
+</table>

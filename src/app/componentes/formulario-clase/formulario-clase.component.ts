@@ -19,6 +19,7 @@ export class FormularioClaseComponent implements OnInit {
   insertarUsuarios(){
     this.users.push(this.user);
     this.user = new Usuario;
+    localStorage.setItem('backup', JSON.stringify(this.users));
   }
 
   mostrarUsuario(usuario){
