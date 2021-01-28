@@ -43,6 +43,11 @@ export class RegistroComponent implements OnInit {
     }
   }
 
+  get nombre() {return this.formRegister.get('nombre')}
+  get apellidos() {return this.formRegister.get('apellidos')}
+  get password() {return this.formRegister.get('password')}
+  get email() {return this.formRegister.get('email')}
+  get telefono() {return this.formRegister.get('telefono')}
   get dni() {return this.formRegister.get('dni')}
 
 }
