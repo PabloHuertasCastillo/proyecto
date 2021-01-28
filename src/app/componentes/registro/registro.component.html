@@ -1,0 +1,30 @@
+<form [formGroup]="formRegister" action="" (submit)="evaluaForm()">
+
+    <input type="text" class="form-control" formControlName="nombre" placeholder="nombre">
+    <input type="text" class="form-control" formControlName="apellidos" placeholder="apellidos">
+    <input type="text" class="form-control" formControlName="password" placeholder="password">
+    <input type="text" class="form-control" formControlName="email" placeholder="email">
+    <input type="text" class="form-control" formControlName="dni" placeholder="dni">
+    <input type="text" class="form-control" formControlName="telefono" placeholder="telefono">
+    <button [disabled]="!formRegister.valid" class="btn btn-primary my-3" type="submit">Registrar</button>
+</form>
+
+
+<div *ngIf="formRegister.valid" class="alert alert-success" role="alert">
+    El Formulario es valido
+</div>
+<div *ngIf="!formRegister.valid && formRegister.touched" class="alert alert-danger" role="alert">
+    El Formulario no es valido
+</div>
+
+<form [formGroup]="formRegister2" action="" (submit)="evaluaForm()">
+
+    <input type="text" class="form-control" formControlName="nombre" placeholder="nombre">
+    <input type="text" class="form-control" formControlName="apellidos" placeholder="apellidos">
+    <input type="text" class="form-control" formControlName="password" placeholder="password">
+    <input type="text" class="form-control" formControlName="email" placeholder="email">
+    <input type="text" class="form-control" formControlName="dni" placeholder="dni">
+    <input type="text" class="form-control" formControlName="telefono" placeholder="telefono">
+    <button [disabled]="!formRegister.valid" class="btn btn-primary my-3" type="submit">Registrar</button>
+
+</form>

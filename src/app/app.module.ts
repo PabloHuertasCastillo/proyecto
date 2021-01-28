@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { AboutComponent } from './componentes/about/about.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './componentes/nav/nav.component';
 import { LoteriaComponent } from './componentes/loteria/loteria.component';
 import { GenerarLoteriaComponent } from './componentes/generar-loteria/generar-loteria.component';
@@ -18,6 +18,7 @@ import { EstructurasComponent } from './componentes/estructuras/estructuras.comp
 import { FormularioClaseComponent } from './componentes/formulario-clase/formulario-clase.component';
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { CrudContactosComponent } from './componentes/crud-contactos/crud-contactos.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +35,14 @@ import { CrudContactosComponent } from './componentes/crud-contactos/crud-contac
     EstructurasComponent,
     FormularioClaseComponent,
     CrudLocalComponent,
-    CrudContactosComponent
+    CrudContactosComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide:LOCALE_ID, useValue:"es"}
