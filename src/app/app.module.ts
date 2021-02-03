@@ -19,6 +19,8 @@ import { FormularioClaseComponent } from './componentes/formulario-clase/formula
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { CrudContactosComponent } from './componentes/crud-contactos/crud-contactos.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { CrudComponent } from './componentes/crud/crud.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,13 +38,15 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     FormularioClaseComponent,
     CrudLocalComponent,
     CrudContactosComponent,
-    RegistroComponent
+    RegistroComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     {provide:LOCALE_ID, useValue:"es"}

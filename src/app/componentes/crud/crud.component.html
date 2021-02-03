@@ -1,0 +1,25 @@
+<input type="text" (input)="buscarConRetraso()" [(ngModel)]="busqueda" placeholder="Buscar">
+
+
+<ul>
+    <li *ngFor="let nota of notas" (click)="notaSeleccionada = nota"> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
+</ul>
+<br>
+
+<form *ngIf="notaSeleccionada.id" [formGroup]='formEditar' action="">
+    <input class="form-control" [(ngModel)]="notaSeleccionada.titulo" type="text" formControlName="titulo">
+    <input class="form-control" [(ngModel)]="notaSeleccionada.contenido" type="text" formControlName="contenido">
+    <button class="btn btn-primary" (click)="editarNota()" [disabled]='!notaSeleccionada.id && formEditar.valid'>Editar</button>
+    <button class="btn btn-primary" (click)="eliminarNota()" [disabled]='!notaSeleccionada.id'>Borrar</button>
+
+</form>
+<hr>
+<div *ngIf="creado" class="alert alert-success" role="alert">
+    Nota creada
+</div>
+<h4>Inserta una nota</h4>
+<form [formGroup]='formNuevo' (ngSubmit)='crearNota(formNuevo.value)' action="">
+    <input class="form-control" type="text" formControlName="titulo">
+    <input class="form-control" type="text" formControlName="contenido">
+    <button class="btn btn-primary" type="submit" [disabled]='formNuevo.invalid'>Crear</button>
+</form>

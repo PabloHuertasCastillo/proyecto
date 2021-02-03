@@ -10,6 +10,7 @@ import { FormularioClaseComponent } from './componentes/formulario-clase/formula
 import { CrudLocalComponent } from './componentes/crud-local/crud-local.component';
 import { CrudContactosComponent } from './componentes/crud-contactos/crud-contactos.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { CrudComponent } from './componentes/crud/crud.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: "tuberias", component:TuberiasComponent},
   {path: "estructuras", component:EstructurasComponent},
   {path: "formulario", component:FormularioClaseComponent},
-  {path: "crud", component:CrudLocalComponent},
+  {path: "crud-local", component:CrudLocalComponent},
+  {path: "crud", component:CrudComponent},
   {path: "contactos", component:CrudContactosComponent},
   {path: "registro", component:RegistroComponent},
   {path: "**", component:HomeComponent},
