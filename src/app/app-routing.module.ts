@@ -11,6 +11,8 @@ import { CrudLocalComponent } from './componentes/crud-local/crud-local.componen
 import { CrudContactosComponent } from './componentes/crud-contactos/crud-contactos.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { CrudComponent } from './componentes/crud/crud.component';
+import { RegisterComponent } from './componentes/auth/register/register.component';
+import { LoginComponent } from './componentes/auth/login/login.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -23,7 +25,8 @@ const routes: Routes = [
   {path: "crud-local", component:CrudLocalComponent},
   {path: "crud", component:CrudComponent},
   {path: "contactos", component:CrudContactosComponent},
-  {path: "registro", component:RegistroComponent},
+  {path: "registro", component:RegisterComponent},
+  {path: "login", component:LoginComponent},
   {path: "**", component:HomeComponent},
 ];
 

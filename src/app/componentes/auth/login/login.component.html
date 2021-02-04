@@ -1,0 +1,7 @@
+<form [formGroup]="formRegister" action="" (submit)="submit()">
+
+    <input type="text" class="form-control" formControlName="email" placeholder="email">
+    <input type="text" class="form-control" formControlName="password" placeholder="password">
+
+    <button [disabled]="!formRegister.valid" class="btn btn-primary my-3" type="submit">Entrar</button>
+</form>

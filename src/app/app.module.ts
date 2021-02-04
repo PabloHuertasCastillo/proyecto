@@ -21,6 +21,9 @@ import { CrudContactosComponent } from './componentes/crud-contactos/crud-contac
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { CrudComponent } from './componentes/crud/crud.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './componentes/auth/login/login.component';
+import { RegisterComponent } from './componentes/auth/register/register.component';
+import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { HttpClientModule } from '@angular/common/http';
     CrudLocalComponent,
     CrudContactosComponent,
     RegistroComponent,
-    CrudComponent
+    CrudComponent,
+    LoginComponent,
+    RegisterComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

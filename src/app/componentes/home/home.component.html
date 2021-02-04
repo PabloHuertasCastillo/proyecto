@@ -2,17 +2,21 @@
 
     <div class="row">
         <h3>Introduce un numero en cada input, se sumarán</h3>
-        <div class="col mb-3 ">
-            <label for="exampleInputPassword1" class="form-label">Numero 1</label>
-            <input class="form-control" type="number" [(ngModel)]="numero1">
+        <div class="row">
+            <div class="col mb-3 ">
+                <label for="exampleInputPassword1" class="form-label">Numero 1</label>
+                <input class="form-control" type="number" [(ngModel)]="numero1">
+            </div>
+
+            <div class="col mb-3">
+                <label for="exampleInputPassword1" class="form-label">Numero 2</label>
+                <input class="form-control" type="number" [(ngModel)]="numero2">
+            </div>
+
         </div>
 
-        <div class="col mb-3 w-50">
-            <label for="exampleInputPassword1" class="form-label">Numero 2</label>
-            <input class="form-control" type="number" [(ngModel)]="numero2">
-        </div>
-
-
+    </div>
+    <div class="row">
         <h3>{{calculaSuma()}}</h3>
         <p *ngIf="numero1 == 0">El numero1 es un {{numero1}}</p>
     </div>
