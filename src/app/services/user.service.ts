@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { loginUser, User } from '../Modelos/user';
 
-const url = 'http://localhost:3000/user';
+const url = 'http://localhost:3000/user/';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class UserService {
   }
 
   guardarToken(token:string): void {
-    localStorage.setItem("tokenUser",token);
+    localStorage.setItem("userToken",token);
   }
 
   
