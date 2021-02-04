@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    alert('Hasta luego');
+    // alert('Hasta luego');
   }
 
 }

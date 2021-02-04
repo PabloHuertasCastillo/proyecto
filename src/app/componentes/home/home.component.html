@@ -1,36 +1,39 @@
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-3">Fluid jumbo heading</h1>
-        <p class="lead">Jumbo helper text</p>
-        <hr class="my-2">
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" routerLink="about" role="button">Ir a About</a>
-        </p>
-    </div>
-    <div class="container">
-        <input type="number" [(ngModel)]="numero1">
-        <input type="number" [(ngModel)]="numero2">
+<div class="container">
+
+    <div class="row">
+        <h3>Introduce un numero en cada input, se sumarán</h3>
+        <div class="col mb-3 ">
+            <label for="exampleInputPassword1" class="form-label">Numero 1</label>
+            <input class="form-control" type="number" [(ngModel)]="numero1">
+        </div>
+
+        <div class="col mb-3 w-50">
+            <label for="exampleInputPassword1" class="form-label">Numero 2</label>
+            <input class="form-control" type="number" [(ngModel)]="numero2">
+        </div>
+
+
         <h3>{{calculaSuma()}}</h3>
         <p *ngIf="numero1 == 0">El numero1 es un {{numero1}}</p>
-
-        <h4>Listado de letras</h4>
-        <ul>
-            <li *ngFor="let letra of letras">{{letra}}</li>
-        </ul>
-
-        <h4>Listado de usuarios</h4>
-        <ul>
-            <li *ngFor="let usuario of usuarios" (click)="mostrarUsuario(usuario)">{{usuario.nombre}} {{usuario.apellido}}</li>
-        </ul>
-
-        <h4>Listado de usuarios2</h4>
-        <ul>
-            <li *ngFor="let usuario of usuarios2" (click)="mostrarUsuario(usuario)">{{usuario.nombre}} {{usuario.apellido}}</li>
-        </ul>
-
-        <h3>{{usuarioclic}}</h3>
-
-        <h3>Mostrando usuario3: {{usuario3.nombre + " " + usuario3.apellido + " " + usuario3.edad}}</h3>
-
     </div>
+
+
+
+
+    <h4>Listado de letras</h4>
+    <h5><small>Mostrando un listado</small> </h5>
+    <ul class="">
+        <li *ngFor="let letra of letras">{{letra}}</li>
+    </ul>
+
+    <h4>Listado de usuarios</h4>
+    <h5> <small>Click a cualquiera de la lista y se motrará en un título</small> </h5>
+    <ul>
+        <li *ngFor="let usuario of usuarios" (click)="mostrarUsuario(usuario)">{{usuario.nombre}} {{usuario.apellido}}</li>
+    </ul>
+
+    <h3>{{usuarioclic}}</h3>
+
+    <h3>Mostrando usuario3: {{usuario3.nombre + " " + usuario3.apellido + " " + usuario3.edad}}</h3>
+
 </div>
