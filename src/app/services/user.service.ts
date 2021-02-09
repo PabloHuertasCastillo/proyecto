@@ -25,6 +25,12 @@ export class UserService {
     localStorage.setItem("userToken",token);
   }
 
-  
+  isLoged(): boolean {
+    return !!localStorage.getItem('userToken');
+  }
+
+  logOut(){
+    localStorage.removeItem('userToken');
+  }
 
 }
