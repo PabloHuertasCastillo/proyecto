@@ -18,11 +18,11 @@ export class UserService {
   }
 
   login(user: loginUser): Observable <any> {
-    return this.http.post(url + "login" , user);
+    return this.http.post(url + 'login' , user);
   }
 
-  guardarToken(token:string): void {
-    localStorage.setItem("userToken",token);
+  guardarToken(token: string ): void {
+    localStorage.setItem('userToken', token);
   }
 
   isLoged(): boolean {
@@ -31,6 +31,10 @@ export class UserService {
 
   logOut(){
     localStorage.removeItem('userToken');
+  }
+
+  getToken(): string {
+    return localStorage.getItem('userToken');
   }
 
 }

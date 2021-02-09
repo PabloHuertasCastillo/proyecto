@@ -20,10 +20,11 @@ import { CrudLocalComponent } from './componentes/crud-local/crud-local.componen
 import { CrudContactosComponent } from './componentes/crud-contactos/crud-contactos.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { CrudComponent } from './componentes/crud/crud.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './componentes/auth/login/login.component';
 import { RegisterComponent } from './componentes/auth/register/register.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
+import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
     HttpClientModule
   ],
   providers: [
-    {provide:LOCALE_ID, useValue:"es"}
+    {provide: LOCALE_ID, useValue: 'es'},
+    {provide: HTTP_INTERCEPTORS, useClass: EnviarTokenInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })
