@@ -1,4 +1,4 @@
 <app-nav></app-nav>
-<div class="container my-4">
-    <router-outlet></router-outlet>
+<div class="container my-4" [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
 </div>

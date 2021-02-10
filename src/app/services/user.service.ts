@@ -9,6 +9,7 @@ const url = 'http://localhost:3000/user/';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   constructor(private http: HttpClient, private router: Router) { }

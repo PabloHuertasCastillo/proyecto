@@ -14,8 +14,12 @@ import { telefonoValido } from 'src/app/validaciones/tlf-valido';
 })
 export class PerfilComponent implements OnInit {
 
+  borrar_usuario_pass: string;
+  borrar_usuario_email: string;
+
   usuario: User;
   mostrarEditar = false;
+  mostrarEliminar = false;
 
   
 

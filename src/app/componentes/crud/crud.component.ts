@@ -3,6 +3,8 @@ import { NotasService } from 'src/app/services/notas.service';
 import { Note } from '../../Modelos/note';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Nota } from '../../Modelos/nota';
+import { User } from 'src/app/Modelos/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-crud',
@@ -31,7 +33,7 @@ export class CrudComponent implements OnInit {
 
   notaSeleccionada: Note = new Note();
 
-  constructor(private servicio: NotasService) { }
+  constructor(private servicio: NotasService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.obtenerNotas();
