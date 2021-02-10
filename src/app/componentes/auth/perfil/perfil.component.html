@@ -1,1 +1,38 @@
-<p>perfil works!</p>
+<h4>Tus datos</h4>
+<ul class="list-group">
+    <li class="list-group-item"><b>Nombre: </b> {{usuario.nombre}}</li>
+    <li class="list-group-item"><b>Apellidos: </b> {{usuario.apellidos}}</li>
+    <li class="list-group-item"><b>Email: </b> {{usuario.email}}</li>
+    <li class="list-group-item"><b>DNI: </b> {{usuario.dni}}</li>
+    <li class="list-group-item"><b>Teléfono: </b> {{usuario.telefono}}</li>
+    <button class="btn btn-primary my-4" (click)='mostrarEditar=!mostrarEditar'>Editar</button>
+</ul>
+
+<form [formGroup]="formRegister" action="" (submit)="editarPerfil()" *ngIf='mostrarEditar'>
+
+    <div class="form-group">
+        <label for="">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.nombre" formControlName="nombre" placeholder="nombre">
+    </div>
+    <div class="form-group">
+        <label for="">Apellidos</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.apellidos" formControlName="apellidos" placeholder="apellidos">
+    </div>
+    <div class="form-group">
+        <label for="">Email</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.email" formControlName="email" placeholder="email">
+    </div>
+    <div class="form-group">
+        <label for="">DNI</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.dni" formControlName="dni" placeholder="dni">
+    </div>
+    <div class="form-group">
+        <label for="">Telefono</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.telefono" formControlName="telefono" placeholder="telefono">
+    </div>
+
+    <button [disabled]="!formRegister.valid" class="btn btn-primary my-3" type="submit" (click)="editarPerfil()">Guardar cambios</button>
+    <button class="btn btn-primary my-4" (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+</form>
+
+<button class="btn btn-danger my-3" type="submit" (click)="eliminarUsuario()">Eliminar usuario</button>
