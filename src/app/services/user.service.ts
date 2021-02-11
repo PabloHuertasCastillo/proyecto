@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { loginUser, User } from '../Modelos/user';
 
-const url = 'http://localhost:3000/user/';
+const url = 'http://localhost/backendphp/user/';
 
 @Injectable({
   providedIn: 'root'
