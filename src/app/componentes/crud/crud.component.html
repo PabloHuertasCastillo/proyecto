@@ -1,9 +1,11 @@
-<input type="text" (input)="buscarConRetraso()" [(ngModel)]="busqueda" placeholder="Buscar">
+<input type="text" class="form-control my-5" (input)="buscarConRetraso()" [(ngModel)]="busqueda" placeholder="Buscar">
 
+<div class="container">
+    <ul>
+        <li *ngFor="let nota of notas" (click)="nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" [ngClass]='{" text-white bg-dark":nota.idUser}'> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
+    </ul>
+</div>
 
-<ul>
-    <li *ngFor="let nota of notas" (click)="notaSeleccionada = nota"> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
-</ul>
 <br>
 
 <form *ngIf="notaSeleccionada.id" [formGroup]='formEditar' action="">

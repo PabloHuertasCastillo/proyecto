@@ -9,19 +9,32 @@ const url = 'http://localhost/backendphp/user/';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  obtenerPerfil(): Observable <any> {
+    return this.http.get(url);
+  }
+
   registrar(usuario: User): Observable <any> {
     return this.http.post(url, usuario);
+  }
+
+  editar(usuario: User): Observable <any> {
+    return this.http.put(url, usuario);
+  }
+
+  eliminar(): Observable <any> {
+    return this.http.delete(url);
   }
 
   login(user: loginUser): Observable <any> {
     return this.http.post(url + 'login' , user);
   }
 
-  guardarToken(token: string ): void {
+  guardarToken(token: string): void {
     localStorage.setItem('userToken', token);
   }
 
