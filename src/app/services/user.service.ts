@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { loginUser, User } from '../Modelos/user';
 
-const url = 'http://localhost:3000/user/';
+const url = 'http://localhost/backendphp/user/';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,10 @@ export class UserService {
 
   obtenerPerfil(): Observable <any> {
     return this.http.get(url);
+  }
+
+  obtenerTodos(): Observable <any>{
+    return this.http.get(url+'list/');
   }
 
   registrar(usuario: User): Observable <any> {
@@ -31,7 +35,7 @@ export class UserService {
   }
 
   login(user: loginUser): Observable <any> {
-    return this.http.post(url + 'login' , user);
+    return this.http.post(url + 'login/' , user);
   }
 
   guardarToken(token: string): void {
@@ -40,6 +44,10 @@ export class UserService {
 
   isLoged(): boolean {
     return !!localStorage.getItem('userToken');
+  }
+
+  subirImagen(entrada): Observable<any>{
+    return this.http.post(url + 'image/', entrada);
   }
 
   logOut(){

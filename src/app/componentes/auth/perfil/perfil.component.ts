@@ -1,3 +1,4 @@
+import { R3TargetBinder } from '@angular/compiler';
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -37,11 +38,50 @@ export class PerfilComponent implements OnInit {
     dni: ['',[Validators.required, dniValido()]],
   })
 
+  formImagen = this.fb.group({
+    imagen: ['', Validators.required]
+  })
+
   cargarPerfil(){
     this.userService.obtenerPerfil().subscribe(
       respuesta => {
         this.usuario = respuesta;
       }, error => console.log(error)
+    )
+  }
+
+  cambiaImagen(evento):void{
+    if( evento.target.files ) {
+      this.formImagen.get('imagen').setValue(evento.target.files[0]);
+    }
+  }
+
+  subirImagen(): void{
+    const formData = new FormData();
+    formData.append('imagen', this.formImagen.get('imagen').value);
+    this.userService.subirImagen(formData).subscribe(
+      respuesta => {
+        console.log(respuesta);
+        this.cargarPerfil()
+      }
+    )
+  }
+
+  foto: File
+  tengoFoto(evento): void {
+    if(evento.target.files){
+      this.foto = evento.target.files[0];
+    }
+  }
+
+  subirFoto(): void{
+    const formData = new FormData();
+    formData.append('imagen', this.foto);
+    this.userService.subirImagen(formData).subscribe(
+      respuesta => {
+        console.log(respuesta);
+        this.cargarPerfil()
+      }
     )
   }
 
