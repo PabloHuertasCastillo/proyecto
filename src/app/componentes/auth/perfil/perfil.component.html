@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-<h4>Tus datos</h4>
-<ul class="list-group">
-    <li class="list-group-item"><b>Nombre: </b> {{usuario.nombre}}</li>
-    <li class="list-group-item"><b>Apellidos: </b> {{usuario.apellidos}}</li>
-    <li class="list-group-item"><b>Email: </b> {{usuario.email}}</li>
-    <li class="list-group-item"><b>DNI: </b> {{usuario.dni}}</li>
-    <li class="list-group-item"><b>Teléfono: </b> {{usuario.telefono}}</li>
-    <img src="{{usuario.imgSrc}}" alt="">
-    <button class="btn btn-primary my-4" (click)='mostrarEditar=!mostrarEditar'>Editar</button>
-</ul>
-=======
 <h3>Tus datos</h3>
 
 <div class="row">
@@ -32,7 +20,6 @@
 
 
 
->>>>>>> 98c13d44a2f2fc3b409f4b1b2ba5796c5f795816
 
 <form [formGroup]="formRegister" action="" (submit)="editarPerfil()" *ngIf='mostrarEditar'>
 
@@ -79,9 +66,9 @@
                     <div class="container">
 
                         <div class="form-group my-3">
-                            <input type="text" class="form-control" [(ngModel)]="borrar_usuario_email" placeholder="email">
+                            <input type="text" class="form-control" [(ngModel)]="borrarUsuarioEmail" placeholder="email">
                         </div>
-                        <button [disabled]="borrar_usuario_email != usuario.email" class="btn btn-danger" type="submit" (click)="eliminarUsuario()">Eliminar usuario</button>
+                        <button [disabled]="borrarUsuarioEmail != usuario.email" class="btn btn-danger" type="submit" (click)="eliminarUsuario()">Eliminar usuario</button>
                     </div>
 
                 </div>
@@ -102,11 +89,9 @@
             <button class="btn btn-outline-secondary" type="submit">Subir imagen de perfil</button>
         </div>
 
-<<<<<<< HEAD
     </div>
 </form>
-=======
-    <!-- <br><br>
+
+<!-- <br><br>
 <input type="file" formControlName="imagen" (change)="tengoFoto($event)">
 <button type="submit" (click)='subirFoto()'>Subir imagen de perfil</button> -->
->>>>>>> 98c13d44a2f2fc3b409f4b1b2ba5796c5f795816

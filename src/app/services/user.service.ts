@@ -36,13 +36,10 @@ export class UserService {
 
   login(user: loginUser): Observable <any> {
     return this.http.post(url + 'login/' , user);
-<<<<<<< HEAD
   }
 
   subirImagen(entrada): Observable<any> {
     return this.http.post(url + 'image/', entrada);
-=======
->>>>>>> 98c13d44a2f2fc3b409f4b1b2ba5796c5f795816
   }
 
   guardarToken(token: string): void {
@@ -51,10 +48,6 @@ export class UserService {
 
   isLoged(): boolean {
     return !!localStorage.getItem('userToken');
-  }
-
-  subirImagen(entrada): Observable<any>{
-    return this.http.post(url + 'image/', entrada);
   }
 
   logOut(){

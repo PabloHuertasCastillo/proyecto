@@ -15,8 +15,8 @@ import { telefonoValido } from 'src/app/validaciones/tlf-valido';
 })
 export class PerfilComponent implements OnInit {
 
-  borrar_usuario_pass: string;
-  borrar_usuario_email: string;
+  borrarUsuarioPass: string;
+  borrarUsuarioEmail: string;
 
   usuario: User;
   mostrarEditar = false;
@@ -42,34 +42,30 @@ export class PerfilComponent implements OnInit {
     imagen: ['', Validators.required],
   })
 
-  formImagen = this.fb.group({
-    imagen: ['', Validators.required]
-  })
-
   cargarPerfil(){
     this.userService.obtenerPerfil().subscribe(
       respuesta => {
         this.usuario = respuesta;
       }, error => console.log(error)
-    )
+    );
   }
 
-  cambiaImagen(evento):void{
-    if( evento.target.files ) {
-      this.formImagen.get('imagen').setValue(evento.target.files[0]);
-    }
-  }
+  // cambiaImagen(evento):void{
+  //   if( evento.target.files ) {
+  //     this.formImagen.get('imagen').setValue(evento.target.files[0]);
+  //   }
+  // }
 
-  subirImagen(): void{
-    const formData = new FormData();
-    formData.append('imagen', this.formImagen.get('imagen').value);
-    this.userService.subirImagen(formData).subscribe(
-      respuesta => {
-        console.log(respuesta);
-        this.cargarPerfil()
-      }
-    )
-  }
+  // subirImagen(): void{
+  //   const formData = new FormData();
+  //   formData.append('imagen', this.formImagen.get('imagen').value);
+  //   this.userService.subirImagen(formData).subscribe(
+  //     respuesta => {
+  //       console.log(respuesta);
+  //       this.cargarPerfil()
+  //     }
+  //   )
+  // }
 
   foto: File
   tengoFoto(evento): void {
@@ -120,9 +116,8 @@ export class PerfilComponent implements OnInit {
     this.userService.subirImagen(formData).subscribe(
       respuesta => {
         console.log(respuesta);
-      },
-      error => { console.log(error); }
-    )
+      }, error => { console.log(error); }
+    );
   }
 
 }
