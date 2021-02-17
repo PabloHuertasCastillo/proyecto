@@ -1,5 +1,41 @@
 <div class="container">
-    <ul>
-        <li *ngFor="let user of usuarios">{{user.nombre}} {{user.apellidos}} {{user.dni}}</li>
+
+    <div class="alert alert-primary" *ngIf="mensajecreado" role="alert">
+        <strong>Mensaje creado correctamente</strong>
+    </div>
+
+    <div class="container my-4" *ngIf="usuarioselected && mostrar">
+        <div class="row">
+
+            <div class="col-4">
+                <ul class="list-group">
+                    <li class="list-group-item"><b>Nombre: </b> {{usuarioselected.nombre}}</li>
+                    <li class="list-group-item"><b>Apellidos: </b> {{usuarioselected.apellidos}}</li>
+                    <li class="list-group-item"><b>Email: </b> {{usuarioselected.email}}</li>
+                    <li class="list-group-item"><b>DNI: </b> {{usuarioselected.dni}}</li>
+                    <li class="list-group-item"><b>Teléfono: </b> {{usuarioselected.telefono}}</li>
+                </ul>
+            </div>
+
+            <div class="col-4">
+                <img class="img-fluid" style="width: 200px;" src="{{usuarioselected.imgSrc}}" alt="">
+            </div>
+
+        </div>
+        <hr>
+        <form [formGroup]='formMensaje' (submit)='crearMensaje()'>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Selecciona un usuario y enviale un mensaje. Usuario seleccionado: {{usuarioselected.nombre}} </label>
+                <input type="text" class="form-control" formControlName='mensaje' placeholder="Escribe tu mensaje">
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="!formMensaje.valid">Escribir mensaje</button>
+        </form>
+    </div>
+
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let user of usuarios" (click)="usuarioselected = user; formMensaje.patchValue({id_destinatario:user.id}) ; mostrar = true">{{user.nombre}} {{user.apellidos}} {{user.dni}}</li>
     </ul>
+
+
 </div>

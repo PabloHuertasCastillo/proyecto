@@ -16,12 +16,12 @@ export class CrudComponent implements OnInit {
   formNuevo: FormGroup = new FormGroup({
     titulo: new FormControl('', [Validators.required]),
     contenido: new FormControl('', [Validators.required]),
-  })
+  });
 
   formEditar: FormGroup = new FormGroup({
     titulo: new FormControl('', [Validators.required]),
     contenido: new FormControl('', [Validators.required]),
-  })
+  });
 
   temporizador: any = null;
 
@@ -89,7 +89,7 @@ export class CrudComponent implements OnInit {
 
   buscarConRetraso(): void {
     if (this.temporizador == null){
-      this.temporizador = setTimeout(() => { this.buscarNota(), this.temporizador = null}, 3000);
+      this.temporizador = setTimeout(() => { this.buscarNota(), this.temporizador = null}, 2000);
     }
   }
 

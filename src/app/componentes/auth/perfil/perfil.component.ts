@@ -7,6 +7,9 @@ import { User } from 'src/app/Modelos/user';
 import { UserService } from 'src/app/services/user.service';
 import { dniValido } from 'src/app/validaciones/dni-valido';
 import { telefonoValido } from 'src/app/validaciones/tlf-valido';
+import { Mensaje } from '../../../Modelos/mensaje';
+import { MensajeService } from '../../../services/mensaje.service';
+import { logging } from 'protractor';
 
 @Component({
   selector: 'app-perfil',
@@ -17,17 +20,18 @@ export class PerfilComponent implements OnInit {
 
   borrarUsuarioPass: string;
   borrarUsuarioEmail: string;
-
   usuario: User;
   mostrarEditar = false;
   mostrarEliminar = false;
+  mensajes: Mensaje [] = [];
 
   
 
-  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) { }
+  constructor(private userService: UserService, private mensajeService: MensajeService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.cargarPerfil();
+    this.cargarMensajes();
   }
 
   formRegister = this.fb.group({
@@ -45,9 +49,27 @@ export class PerfilComponent implements OnInit {
   cargarPerfil(){
     this.userService.obtenerPerfil().subscribe(
       respuesta => {
+        console.log(respuesta);
         this.usuario = respuesta;
       }, error => console.log(error)
     );
+  }
+
+  cargarMensajes(){
+    this.mensajeService.getMensajes().subscribe(
+      respuesta => {
+        this.mensajes = respuesta;
+      }, error => console.log(error)
+    )
+  }
+
+  borrarMensaje(id){
+    this.mensajeService.borrarMensaje(id).subscribe(
+      respuesta => {
+        console.log(respuesta);
+        this.cargarMensajes()
+      }, error => console.log(error)
+    )
   }
 
   // cambiaImagen(evento):void{
@@ -103,6 +125,8 @@ export class PerfilComponent implements OnInit {
       }, error => console.log(error)
     );
   }
+
+
 
   cambiaImagen(evento): void {
     if (evento.target.files){

@@ -10,7 +10,7 @@ const url = 'http://localhost/backendphp/notas/';
 })
 export class NotasService {
 
-  constructor(private http: HttpClient ) { }
+  constructor( private http: HttpClient ) { }
 
   leerNotas(): Observable<any> {
     return this.http.get(url);

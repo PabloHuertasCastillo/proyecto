@@ -13,7 +13,6 @@
     </div>
     <div class="col">
         <img class="img-fluid" style="width: 200px;" src="{{usuario.imgSrc}}" alt="">
-
     </div>
 </div>
 
@@ -51,7 +50,7 @@
 <div class="">
     <div class="row">
         <div class="col">
-            <h4>Sube una foto actualiza la tuya</h4>
+            <h4>Sube una foto o actualiza la tuya</h4>
             <form [formGroup]="formImagen" action="" (submit)="subirImagen()">
                 <input class="my-3" type="file" formControlName="imagen" (change)="cambiaImagen($event)">
                 <button class="btn btn-primary" type="submit">Subir imagen de perfil</button>
@@ -91,6 +90,20 @@
 
     </div>
 </form>
+
+<div class="row my-3">
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let mensaje of mensajes">
+                <p>
+                    {{mensaje.mensaje}}
+                </p>
+                <p>de {{mensaje.id_remitente}} a las <small>{{mensaje.fecha}}</small></p>
+                <div class=""><button (click)="borrarMensaje(mensaje.id)" class="btn btn-danger">Borrar mensaje</button> </div>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <!-- <br><br>
 <input type="file" formControlName="imagen" (change)="tengoFoto($event)">

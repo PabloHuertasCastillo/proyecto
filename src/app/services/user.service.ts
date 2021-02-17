@@ -19,7 +19,7 @@ export class UserService {
   }
 
   obtenerTodos(): Observable <any>{
-    return this.http.get(url+'list/');
+    return this.http.get(url + 'list/');
   }
 
   registrar(usuario: User): Observable <any> {
