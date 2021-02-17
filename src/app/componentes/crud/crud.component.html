@@ -2,7 +2,11 @@
 
 <div class="container">
     <ul>
+<<<<<<< HEAD
         <li *ngFor="let nota of notas" (click)="notaSeleccionada = nota; nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" [ngClass]='{"text-white bg-dark":nota.idUser}'> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
+=======
+        <li *ngFor="let nota of notas" (click)="notaSeleccionada = nota; nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" [ngClass]='{" text-white bg-dark":nota.idUser}'> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
+>>>>>>> 98c13d44a2f2fc3b409f4b1b2ba5796c5f795816
     </ul>
 </div>
 
