@@ -34,7 +34,11 @@ export class PerfilComponent implements OnInit {
     apellidos: ['',[Validators.required]],
     email: ['',[Validators.required, Validators.email]],
     telefono: [ undefined, [telefonoValido()]],
-    dni: ['',[Validators.required, dniValido()]],
+    dni: ['',[Validators.required, dniValido()]]
+  })
+
+  formImagen = this.fb.group({
+    imagen: ['', Validators.required],
   })
 
   cargarPerfil(){
@@ -62,6 +66,23 @@ export class PerfilComponent implements OnInit {
         this.router.navigate(['/login']);
       }, error => console.log(error)
     );
+  }
+
+  cambiaImagen(evento): void {
+    if (evento.target.files){
+      this.formImagen.get('imagen').setValue(evento.target.files[0]);
+    }
+  }
+
+  subirImagen(): void {
+    const formData = new FormData();
+    formData.append('imagen', this.formImagen.get('imagen').value);
+    this.userService.subirImagen(formData).subscribe(
+      respuesta => {
+        console.log(respuesta);
+      },
+      error => { console.log(error); }
+    )
   }
 
 }

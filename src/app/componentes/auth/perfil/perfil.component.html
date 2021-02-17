@@ -5,6 +5,7 @@
     <li class="list-group-item"><b>Email: </b> {{usuario.email}}</li>
     <li class="list-group-item"><b>DNI: </b> {{usuario.dni}}</li>
     <li class="list-group-item"><b>Teléfono: </b> {{usuario.telefono}}</li>
+    <img src="{{usuario.imgSrc}}" alt="">
     <button class="btn btn-primary my-4" (click)='mostrarEditar=!mostrarEditar'>Editar</button>
 </ul>
 
@@ -50,6 +51,15 @@
 
     </div>
 
-
-
 </div>
+
+<form [formGroup]="formImagen" action="" (submit)="subirImagen()" *ngIf='mostrarEditar'>
+    <div class="form-group">
+
+        <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" formControlName="imagen" (change)='cambiaImagen($event)' aria-label="Upload">
+            <button class="btn btn-outline-secondary" type="submit">Subir imagen de perfil</button>
+        </div>
+
+    </div>
+</form>

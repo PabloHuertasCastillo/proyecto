@@ -1,3 +1,7 @@
+<div class="alert alert-warning" *ngIf='mensaje' role="alert">
+    <strong>{{mensaje}}</strong>
+</div>
+
 <form [formGroup]="formRegister" action="" (submit)="submit()">
 
     <input type="text" class="form-control" formControlName="email" placeholder="email">

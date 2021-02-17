@@ -31,7 +31,11 @@ export class UserService {
   }
 
   login(user: loginUser): Observable <any> {
-    return this.http.post(url + 'login' , user);
+    return this.http.post(url + 'login/' , user);
+  }
+
+  subirImagen(entrada): Observable<any> {
+    return this.http.post(url + 'image/', entrada);
   }
 
   guardarToken(token: string): void {

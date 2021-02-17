@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required]],
   })
 
+  mensaje: string;
+
   constructor(private fb: FormBuilder, private servicioUser: UserService, private router: Router) { }
 
   ngOnInit(): void {
@@ -28,7 +30,9 @@ export class LoginComponent implements OnInit {
       respuesta => {
         this.servicioUser.guardarToken(respuesta);
         this.router.navigate(['/perfil']);
-      }, error => console.log(error)
+      }, error => {
+        console.log(error), this.mensaje = error.error.error;
+      } 
     )
   }
 

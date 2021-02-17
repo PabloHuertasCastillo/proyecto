@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, observable } from 'rxjs';
 import { Note } from '../Modelos/note';
 
-const url = 'http://localhost:3000/backendphp/notas/';
+const url = 'http://localhost/backendphp/notas/';
 
 @Injectable({
   providedIn: 'root'
