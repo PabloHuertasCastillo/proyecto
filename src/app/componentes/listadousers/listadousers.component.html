@@ -1,5 +1,7 @@
 <div class="container">
 
+    <h3 class="card-title">Selecciona a un usuario para ver su perfil o enviarle un mensaje</h3>
+
     <div class="alert alert-primary" *ngIf="mensajecreado" role="alert">
         <strong>Mensaje creado correctamente</strong>
     </div>
@@ -34,7 +36,7 @@
     </div>
 
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let user of usuarios" (click)="usuarioselected = user; formMensaje.patchValue({id_destinatario:user.id}) ; mostrar = true">{{user.nombre}} {{user.apellidos}} {{user.dni}}</li>
+        <li class="list-group-item" *ngFor="let user of usuarios" (click)="usuarioselected = user; formMensaje.patchValue({idDestinatario:user.id}) ; mostrar = true">{{user.nombre}} {{user.apellidos}} {{user.dni}}</li>
     </ul>
 
 

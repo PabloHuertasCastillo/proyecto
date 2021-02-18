@@ -46,7 +46,7 @@ export class CrudLocalComponent implements OnInit {
   borrarNota(notaActualizada: Nota): void {
 
     if (notaActualizada.id > -1) {
-      this.notas.splice(notaActualizada.id, 1);
+      this.notas.splice(this.notas.indexOf(notaActualizada), 1);
       localStorage.setItem('crudLocal', JSON.stringify(this.notas));
       this.notaSeleccionada = new Nota();
     }

@@ -1,16 +1,27 @@
 <h5>Insertar Nota</h5>
-<input type="text" placeholder="titulo" [(ngModel)]="notaNueva.titulo">
-<input type="text" placeholder="contenido" [(ngModel)]="notaNueva.contenido">
-<button class="btn btn-primary mx-2" (click)="insertarNota()">Insertar nota</button><br>
+<div class="row g-3 my-3">
+    <div class="col-md-6">
+        <input type="text" placeholder="titulo" [(ngModel)]="notaNueva.titulo" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <input type="text" placeholder="contenido" [(ngModel)]="notaNueva.contenido" class="form-control">
+    </div>
+</div>
+
+<button class="btn btn-primary" (click)="insertarNota()">Insertar nota</button><br>
 <hr>
 <h5>Nota seleccionada</h5>
-<p>
-    <input type="text" placeholder="titulo" [(ngModel)]="notaSeleccionada.titulo">
-    <input type="text" placeholder="contenido" [(ngModel)]="notaSeleccionada.contenido">
-</p>
+<div class="row g-3 my-3">
+    <div class="col-md-6">
+        <input type="text" placeholder="titulo" [(ngModel)]="notaSeleccionada.titulo" class="form-control">
+    </div>
+    <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="contenido" [(ngModel)]="notaSeleccionada.contenido">
+    </div>
+</div>
 
 <button class="btn btn-primary" (click)="editarNota(notaSeleccionada)">Editar Nota</button>
-<button class="btn btn-danger" (click)="borrarNota(notaSeleccionada)">Borrar Nota</button>
+<button class="btn btn-danger ml-3" (click)="borrarNota(notaSeleccionada)">Borrar Nota</button>
 
 
 

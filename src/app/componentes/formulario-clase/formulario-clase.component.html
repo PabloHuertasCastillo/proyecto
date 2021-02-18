@@ -1,10 +1,15 @@
-<input type="text" placeholder="nombre" [(ngModel)]="user.nombre"><br>
-<input type="text" placeholder="apellido" [(ngModel)]="user.apellido"><br>
-<input type="text" placeholder="edad" [(ngModel)]="user.edad"><br>
-<button (click)="insertarUsuarios()">Mostrar usuario</button>
+<h2>Clases en angular </h2>
+<h5>Se creará un nuevo usuario y se añadirá a un array de usuarios</h5>
+<div class="my-3">
+    <input type="text" class="form-control" placeholder="nombre" [(ngModel)]="user.nombre"><br>
+    <input type="text" class="form-control" placeholder="apellido" [(ngModel)]="user.apellido"><br>
+    <input type="text" class="form-control" placeholder="edad" [(ngModel)]="user.edad"><br>
+    <button class="btn btn-primary" (click)="insertarUsuarios()">Mostrar usuario</button>
+</div>
 
-<ul *ngFor="let usuario of users" (click)="mostrarUsuario(usuario)">
-    <li>Nombre: {{usuario.nombre}}</li>
-    <li>Apellido: {{usuario.apellido}}</li>
-    <li>Edad: {{usuario.edad}}</li>
+
+<ul class="list-group my-3" *ngFor="let usuario of users" (click)="mostrarUsuario(usuario)">
+    <li class="list-group-item">Nombre: {{usuario.nombre}}</li>
+    <li class="list-group-item">Apellido: {{usuario.apellido}}</li>
+    <li class="list-group-item">Edad: {{usuario.edad}}</li>
 </ul>

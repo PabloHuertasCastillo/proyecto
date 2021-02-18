@@ -23,7 +23,7 @@ export class ListadousersComponent implements OnInit {
   mensajecreado = false;
 
   formMensaje = this.fb.group({
-    id_destinatario: [''],
+    idDestinatario: [''],
     mensaje: ['', Validators.required]
   });
 

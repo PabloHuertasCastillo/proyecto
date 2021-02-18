@@ -1,7 +1,8 @@
 export class Mensaje {
     id?: number;
-    id_remitente?: number;
-    id_destinatario?: number;
+    idRemitente?: number;
+    idDestinatario?: number;
+    leido?: number;
     mensaje?: string;
     fecha?: string;
 }
