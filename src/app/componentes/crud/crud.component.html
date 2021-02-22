@@ -1,30 +1,51 @@
-<h3>
-    Listado de notas</h3>
+<div class="">
+    <div class="row">
+        <div class="col-4">
+            <div *ngIf="creado" class="alert alert-success" role="alert">
+                Nota creada
+            </div>
+            <h3>Inserta una nota</h3>
+            <form [formGroup]='formNuevo' (ngSubmit)='crearNota(formNuevo.value)' action="">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Título de la nota</label>
+                    <input class="form-control" type="text" formControlName="titulo">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Contenido de la nota</label>
+                    <input class="form-control" type="text" formControlName="contenido">
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]='formNuevo.invalid'>Crear nota</button>
+            </form>
 
-<input type="text" class="form-control my-5" (input)="buscarConRetraso()" [(ngModel)]="busqueda" placeholder="Buscar">
+            <form class="my-2" *ngIf="notaSeleccionada.id" [formGroup]='formEditar' action="">
+                <hr>
+                <h5>Edita o borra la nota seleccionada</h5>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Título de la nota seleccionada</label>
+                    <input class="form-control" [(ngModel)]="notaSeleccionada.titulo" type="text" formControlName="titulo">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Contenido de la nota seleccionada</label>
+                    <input class="form-control" [(ngModel)]="notaSeleccionada.contenido" type="text" formControlName="contenido">
+                </div>
+                <button class="btn btn-primary" (click)="editarNota()" [disabled]='!notaSeleccionada.id && formEditar.valid'>Editar</button>
+                <button class="btn btn-danger mx-1" (click)="eliminarNota()" [disabled]='!notaSeleccionada.id'>Borrar</button>
 
-<div class="container">
-    <ul>
-        <li *ngFor="let nota of notas" (click)="notaSeleccionada = nota; nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" [ngClass]='{"text-white bg-dark":nota.idUser}'> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
-    </ul>
+            </form>
+
+        </div>
+        <div class="col-8">
+            <h3>Listado de notas</h3>
+
+            <input type="text" class="form-control my-2" (input)="buscarConRetraso()" [(ngModel)]="busqueda" placeholder="Buscar notas">
+
+            <div class="">
+                <ul class="list-group my-2">
+                    <p class="text-dark"><b>Las notas del usuario aparecerán en negrita</b>
+                    </p>
+                    <li class="list-group-item" *ngFor="let nota of notas" (click)="notaSeleccionada = nota; nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" [ngClass]='{"text-dark bg-light":nota.idUser}'> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
-
-<br>
-
-<form *ngIf="notaSeleccionada.id" [formGroup]='formEditar' action="">
-    <input class="form-control" [(ngModel)]="notaSeleccionada.titulo" type="text" formControlName="titulo">
-    <input class="form-control" [(ngModel)]="notaSeleccionada.contenido" type="text" formControlName="contenido">
-    <button class="btn btn-primary" (click)="editarNota()" [disabled]='!notaSeleccionada.id && formEditar.valid'>Editar</button>
-    <button class="btn btn-primary" (click)="eliminarNota()" [disabled]='!notaSeleccionada.id'>Borrar</button>
-
-</form>
-<hr>
-<div *ngIf="creado" class="alert alert-success" role="alert">
-    Nota creada
-</div>
-<h4>Inserta una nota</h4>
-<form [formGroup]='formNuevo' (ngSubmit)='crearNota(formNuevo.value)' action="">
-    <input class="form-control" type="text" formControlName="titulo">
-    <input class="form-control" type="text" formControlName="contenido">
-    <button class="btn btn-primary" type="submit" [disabled]='formNuevo.invalid'>Crear nota</button>
-</form>

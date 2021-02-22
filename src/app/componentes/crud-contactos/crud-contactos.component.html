@@ -1,86 +1,71 @@
 <div class="row justify-content-evenly">
 
     <div class="col-5 border rounded">
+        <h5 class="my-2">Insertar Contacto</h5>
         <div class="row g-3 my-3">
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
-            </div>
             <div class="col-md-12">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+                <label for="inputEmail4" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputEmail4" [(ngModel)]="nuevoContacto.nombre">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="inputPassword4" [(ngModel)]="nuevoContacto.apellido">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Edad</label>
+                <input type="text" class="form-control" id="inputEmail4" [(ngModel)]="nuevoContacto.edad">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="inputPassword4" [(ngModel)]="nuevoContacto.numero">
+            </div>
+            <div class="col-md-6">
+                <label for="inputZip" class="form-label">Teléfono de trabajo</label>
+                <input type="text" class="form-control" id="inputZip" [(ngModel)]="nuevoContacto.numeroTrabajo">
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary my-2">Sign in</button>
+                <button type="submit" class="btn btn-primary my-2" (click)="insertarContacto()">Guardar</button>
             </div>
         </div>
     </div>
 
+    <div class="col-1"></div>
+
     <div class="col-5 border rounded">
+        <h5 class="my-2">Contacto Seleccionado</h5>
         <div class="row g-3 my-3 mx-1">
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
-            </div>
             <div class="col-md-12">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+                <label for="inputEmail4" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputEmail4" [(ngModel)]="contactoSeleccionada.nombre">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="inputPassword4" [(ngModel)]="contactoSeleccionada.apellido">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Edad</label>
+                <input type="text" class="form-control" id="inputEmail4" [(ngModel)]="contactoSeleccionada.edad">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="inputPassword4" [(ngModel)]="contactoSeleccionada.numero">
+            </div>
+            <div class="col-md-6">
+                <label for="inputZip" class="form-label">Teléfono de trabajo</label>
+                <input type="text" class="form-control" id="inputZip" [(ngModel)]="contactoSeleccionada.numeroTrabajo">
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary my-2">Sign in</button>
+                <button type="submit" class="btn btn-primary my-2" (click)="editarContacto(contactoSeleccionada)">Editar</button>
+                <button type="submit" class="btn btn-danger my-2 mx-1" (click)="borrarContacto(contactoSeleccionada)">Borrar</button>
             </div>
         </div>
     </div>
 </div>
 
-<h5>Insertar Contacto</h5>
-<input type="text" placeholder="Nombre" [(ngModel)]="nuevoContacto.nombre">
-<input type="text" placeholder="Apellido (Opcional)" [(ngModel)]="nuevoContacto.apellido">
-<input type="text" placeholder="Edad (Opcional)" [(ngModel)]="nuevoContacto.edad">
-<input type="text" placeholder="Número" [(ngModel)]="nuevoContacto.numero">
-<input type="text" placeholder="Número trabajo (Opcional)" [(ngModel)]="nuevoContacto.numeroTrabajo">
-
-<button class="btn btn-primary mx-2" (click)="insertarContacto()">Insertar nota</button><br>
 <hr>
-<h5>Contacto seleccionado</h5>
-<p>
-    <input type="text" placeholder="Nombre" [(ngModel)]="contactoSeleccionada.nombre">
-    <input type="text" placeholder="Apellido (Opcional)" [(ngModel)]="contactoSeleccionada.apellido">
-    <input type="text" placeholder="Edad (Opcional)" [(ngModel)]="contactoSeleccionada.edad">
-    <input type="text" placeholder="Número" [(ngModel)]="contactoSeleccionada.numero">
-    <input type="text" placeholder="Número trabajo (Opcional)" [(ngModel)]="contactoSeleccionada.numeroTrabajo">
-</p>
-
-<button class="btn btn-primary" (click)="editarContacto(contactoSeleccionada)">Editar Contacto</button>
-<button class="btn btn-danger" (click)="borrarContacto(contactoSeleccionada)">Borrar Contacto</button>
 
 
-
-<table class="table my-5">
+<table class="table">
     <thead>
         <tr>
             <th>Id</th>
