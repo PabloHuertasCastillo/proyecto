@@ -1,9 +1,6 @@
-<h3>Tus datos</h3>
-
-
-
-<div class="row">
+<div class="row my-3">
     <div class="col">
+        <h3>Tus datos</h3>
         <ul class="list-group">
             <li class="list-group-item"><b>Nombre: </b> {{usuario.nombre}}</li>
             <li class="list-group-item"><b>Apellidos: </b> {{usuario.apellidos}}</li>
@@ -19,10 +16,10 @@
 </div>
 
 
+<hr>
 
 
-
-<form [formGroup]="formRegister" action="" (submit)="editarPerfil()" *ngIf='mostrarEditar'>
+<form [formGroup]="formRegister" class="border rounded shadow-sm bg-body border my-3 rounded p-4" action="" (submit)="editarPerfil()" *ngIf='mostrarEditar'>
 
     <div class="form-group">
         <label for="">Nombre</label>
@@ -45,22 +42,35 @@
         <input type="text" class="form-control" [(ngModel)]="usuario.telefono" formControlName="telefono" placeholder="telefono">
     </div>
 
-    <button [disabled]="!formRegister.valid" class="btn btn-primary my-3" type="submit" (click)="editarPerfil()">Guardar cambios</button>
-    <button class="btn btn-primary my-4" (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+    <button [disabled]="!formRegister.valid" class="btn btn-primary my-3" type="submit" (click)="editarPerfil()">Guardar
+    cambios</button>
+    <button class="btn btn-primary ml-3" (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
 </form>
+
+<!-- <form [formGroup]="formImagen" class="border rounded shadow-sm bg-body border my-3 rounded p-4" action="" (submit)="subirImagen()" *ngIf='mostrarEditar'>
+    <div class="form-group">
+
+        <div class="input-group">
+            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" formControlName="imagen" (change)='cambiaImagen($event)' aria-label="Upload">
+            <button class="btn btn-outline-secondary" type="submit">Subir imagen de perfil</button>
+        </div>
+
+    </div>
+</form> -->
 
 <div class="">
     <div class="row">
+
         <div class="col">
-            <h4>Sube una foto o actualiza la tuya</h4>
+            <h5>Sube una foto o actualiza la tuya</h5>
             <form [formGroup]="formImagen" action="" (submit)="subirImagen()">
                 <input class="my-3" type="file" formControlName="imagen" (change)="cambiaImagen($event)">
                 <button class="btn btn-primary" type="submit">Subir imagen de perfil</button>
             </form>
         </div>
-        <div class="col">
-            <h6 for="">Para eliminar tu usuario, debes meter volver a introducir tu email</h6>
 
+        <div class="col">
+            <p for="">Para eliminar tu usuario, debes meter volver a introducir tu email</p>
             <div class="card text-left">
                 <div class="form-group">
 
@@ -71,29 +81,18 @@
                         </div>
                         <button [disabled]="borrarUsuarioEmail != usuario.email" class="btn btn-danger" type="submit" (click)="eliminarUsuario()">Eliminar usuario</button>
                     </div>
-
                 </div>
-
-
-
             </div>
         </div>
+
     </div>
 
 </div>
 
-<form [formGroup]="formImagen" action="" (submit)="subirImagen()" *ngIf='mostrarEditar'>
-    <div class="form-group">
 
-        <div class="input-group">
-            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" formControlName="imagen" (change)='cambiaImagen($event)' aria-label="Upload">
-            <button class="btn btn-outline-secondary" type="submit">Subir imagen de perfil</button>
-        </div>
-
-    </div>
-</form>
-
-<div class="row my-3">
+<hr>
+<p>Tus mensajes</p>
+<div class="row my-5">
     <div class="col">
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let mensaje of mensajes">

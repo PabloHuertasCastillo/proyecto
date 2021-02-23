@@ -4,8 +4,9 @@
             <div *ngIf="creado" class="alert alert-success" role="alert">
                 Nota creada
             </div>
-            <h3>Inserta una nota</h3>
-            <form [formGroup]='formNuevo' (ngSubmit)='crearNota(formNuevo.value)' action="">
+
+            <form [formGroup]='formNuevo' (ngSubmit)='crearNota(formNuevo.value)' class="shadow-sm p-3 mb-5 bg-body border rounded p-3" action="">
+                <h3>Inserta una nota</h3>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Título de la nota</label>
                     <input class="form-control" type="text" formControlName="titulo">
@@ -34,7 +35,7 @@
             </form>
 
         </div>
-        <div class="col-8">
+        <div class="col-8 shadow-sm p-3 mb-5 bg-body border rounded p-4">
             <h3>Listado de notas</h3>
 
             <input type="text" class="form-control my-2" (input)="buscarConRetraso()" [(ngModel)]="busqueda" placeholder="Buscar notas">
