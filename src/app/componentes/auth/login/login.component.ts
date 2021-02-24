@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required]],
   })
 
+  creado = false;
   mensaje: string;
 
   constructor(private fb: FormBuilder, private servicioUser: UserService, private router: Router) { }
@@ -28,8 +29,13 @@ export class LoginComponent implements OnInit {
   submit(): void{
     this.servicioUser.login(this.formRegister.value).subscribe(
       respuesta => {
+        this.mensaje = respuesta;
         this.servicioUser.guardarToken(respuesta);
-        this.router.navigate(['/perfil']);
+        this.creado = true;
+        setTimeout(() => {
+          this.creado=false;
+          this.router.navigate(['/perfil']);
+        }, 2000);
       }, error => {
         console.log(error), this.mensaje = error.error.error;
       } 

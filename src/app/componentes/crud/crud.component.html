@@ -1,8 +1,8 @@
 <div class="">
     <div class="row">
         <div class="col-4">
-            <div *ngIf="creado" class="alert alert-success" role="alert">
-                Nota creada
+            <div *ngIf="creado" class="alert alert-info" role="alert">
+                {{mensaje}}
             </div>
 
             <form [formGroup]='formNuevo' (ngSubmit)='crearNota(formNuevo.value)' class="shadow-sm p-3 mb-5 bg-body border rounded p-3" action="">

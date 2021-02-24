@@ -29,6 +29,8 @@ export class CrudComponent implements OnInit {
 
   creado = false;
 
+  mensaje = '';
+
   busqueda = '';
 
   notaSeleccionada: Note = new Note();
@@ -51,10 +53,11 @@ export class CrudComponent implements OnInit {
   crearNota(nota: Note) {
     this.servicio.insertarNota(nota).subscribe(
       respuesta => {
+        this.mensaje = respuesta;
         this.obtenerNotas();
         this.formNuevo.reset();
         this.creado = true;
-        setTimeout(() => {this.creado=false}, 3000)
+        setTimeout(() => {this.creado=false}, 3000);
       }, error => console.log(error)
     );
   }
@@ -72,8 +75,11 @@ export class CrudComponent implements OnInit {
   editarNota(): void{
     this.servicio.editarNota(this.notaSeleccionada).subscribe(
       respuesta => {
+        this.mensaje = respuesta;
         this.notaSeleccionada = new Note();
         this.obtenerNotas();
+        this.creado = true;
+        setTimeout(() => {this.creado=false}, 3000);
       }, error => console.log(error)
     )
   }
