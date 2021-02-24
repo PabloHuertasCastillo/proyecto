@@ -66,6 +66,10 @@ export class CrudComponent implements OnInit {
     this.servicio.borrarNota(this.notaSeleccionada.id).subscribe(
       respuesta => {
         this.notaSeleccionada = new Note();
+        this.mensaje = respuesta;
+        this.formNuevo.reset();
+        this.creado = true;
+        setTimeout(() => {this.creado=false}, 3000);
         this.obtenerNotas();
       },
       error => console.log(error)

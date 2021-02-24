@@ -1,6 +1,7 @@
 <div class="row my-3">
     <div class="col">
         <h3>Tus datos</h3>
+
         <ul class="list-group">
             <li class="list-group-item"><b>Nombre: </b> {{usuario.nombre}}</li>
             <li class="list-group-item"><b>Apellidos: </b> {{usuario.apellidos}}</li>
@@ -10,12 +11,18 @@
             <button class="btn btn-primary my-4" (click)='mostrarEditar=!mostrarEditar'>Editar</button>
         </ul>
     </div>
-    <div class="col">
+    <div *ngIf="usuario.imgSrc" class="col">
         <img class="img-fluid" style="width: 200px;" src="{{usuario.imgSrc}}" alt="">
     </div>
+    <div *ngIf="!usuario.imgSrc" class="col">
+        <img class="img-fluid" style="width: 200px;" src="assets/images/no-photo-icon-22.png" alt="">
+    </div>
+
 </div>
 
-
+<div class="alert alert-info" *ngIf="mostrar2" role="alert">
+    <strong>{{mensaje}}</strong>
+</div>
 <hr>
 
 
@@ -62,6 +69,9 @@
     <div class="row">
 
         <div class="col">
+            <div class="alert alert-info" *ngIf="mostrar" role="alert">
+                <strong>{{mensaje}}</strong>
+            </div>
             <h5>Sube una foto o actualiza la tuya</h5>
             <form [formGroup]="formImagen" action="" (submit)="subirImagen()">
                 <input class="my-3" type="file" formControlName="imagen" (change)="cambiaImagen($event)">
@@ -90,6 +100,9 @@
 
 <hr>
 <h5>Tus mensajes</h5>
+<div class="alert alert-info" *ngIf="mostrar" role="alert">
+    <strong>{{mensaje}}</strong>
+</div>
 <div class="row my-3">
     <div class="col">
         <ul class="list-group">

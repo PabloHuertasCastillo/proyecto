@@ -29,7 +29,7 @@ export class NotasService {
   }
 
   borrarNota(id: number): Observable<any> {
-    return this.http.delete(url + '?id=' + id);
+    return this.http.delete(url + id);
   }
 
   buscarNotas(busqueda: string): Observable<any> {

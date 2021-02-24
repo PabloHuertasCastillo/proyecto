@@ -8,39 +8,56 @@ import { telefonoValido } from 'src/app/validaciones/tlf-valido';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-
   formRegister = this.fb.group({
     nombre: ['', [Validators.required]],
-    apellidos: ['',[Validators.required]],
+    apellidos: ['', [Validators.required]],
     password: ['', [Validators.required, Validators.minLength(4)]],
     password2: ['', [Validators.required, Validators.minLength(4)]],
-    email: ['',[Validators.required, Validators.email]],
-    telefono: [ undefined, [telefonoValido()]],
-    dni: ['',[Validators.required, dniValido()]]
+    email: ['', [Validators.required, Validators.email]],
+    telefono: [undefined, [telefonoValido()]],
+    dni: ['', [Validators.required, dniValido()]],
+  });
 
-  })
+  constructor(
+    private fb: FormBuilder,
+    private servicioUser: UserService,
+    private router: Router
+  ) {}
 
-  constructor(private fb: FormBuilder, private servicioUser: UserService, private router: Router) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+  creado = false;
+  mensaje: string;
 
-  submit(){
+  submit() {
     if (this.formRegister.value.password == this.formRegister.value.password2) {
       this.servicioUser.registrar(this.formRegister.value).subscribe(
-        respuesta => {
-          console.log(respuesta);
+        (respuesta) => {
+          this.mensaje = "Usuario creado correctamente, redirigiendo al perfil";
           this.servicioUser.guardarToken(respuesta);
-          this.router.navigate(['/perfil']);
-        }, error => console.log(error)
+          this.creado = true;
+          setTimeout(() => {
+            this.creado = false;
+            this.router.navigate(['/perfil']);
+          }, 2000);
+        },
+        (error) => {
+          this.mensaje = error.error.error;
+          this.creado = true;
+          setTimeout(() => {
+            this.creado = false;
+          }, 2000);
+        }
       );
     } else {
-      alert("Las contraseñas no coinciden")
+      this.mensaje = 'Las contraseñas no coinciden';
+      this.creado = true;
+      setTimeout(() => {
+        this.creado = false;
+      }, 2000);
     }
-    
   }
-
 }

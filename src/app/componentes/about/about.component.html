@@ -1,3 +1,12 @@
-<input class="form-control" type="text" [(ngModel)]="nombre" placeholder="Nombre"><br>
-<input class="form-control" type="text" [(ngModel)]="apellido" placeholder="Apellido"><br>
-<button class="btn btn-primary" routerLink="/hola/{{nombre}}/{{apellido}}">Ir hacia Hola</button>
+<div class="shadow p-3 mb-5 bg-body border rounded p-4">
+    <h3>Escribe tu nombre</h3>
+    <div class="mb-1">
+        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+        <input class="form-control" type="text" [(ngModel)]="nombre" placeholder="Nombre"><br>
+    </div>
+    <div class="mb-1">
+        <label for="exampleInputEmail1" class="form-label">Apellidos</label>
+        <input class="form-control" type="text" [(ngModel)]="apellido" placeholder="Apellido"><br>
+    </div>
+    <button class="btn btn-primary" routerLink="/hola/{{nombre}}/{{apellido}}">Ir hacia Hola</button>
+</div>

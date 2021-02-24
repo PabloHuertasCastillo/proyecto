@@ -3,12 +3,11 @@
     <h3 class="card-title">Selecciona a un usuario para ver su perfil o enviarle un mensaje</h3>
 
     <div class="alert alert-primary" *ngIf="mensajecreado" role="alert">
-        <strong>Mensaje creado correctamente</strong>
+        <strong>{{mensaje}}</strong>
     </div>
 
     <div class="container my-4" *ngIf="usuarioselected && mostrar">
         <div class="row">
-
             <div class="col-4">
                 <ul class="list-group">
                     <li class="list-group-item"><b>Nombre: </b> {{usuarioselected.nombre}}</li>
@@ -19,8 +18,11 @@
                 </ul>
             </div>
 
-            <div class="col-4">
+            <div *ngIf="usuarioselected.imgSrc" class="col">
                 <img class="img-fluid" style="width: 200px;" src="{{usuarioselected.imgSrc}}" alt="">
+            </div>
+            <div *ngIf="!usuarioselected.imgSrc" class="col">
+                <img class="img-fluid" style="width: 200px;" src="assets/images/no-photo-icon-22.png" alt="">
             </div>
 
         </div>
@@ -31,7 +33,7 @@
                 <input type="text" class="form-control" formControlName='mensaje' placeholder="Escribe tu mensaje">
             </div>
 
-            <button type="submit" class="btn btn-primary" (click)="crearMensaje()" [disabled]="!formMensaje.valid">Escribir mensaje</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!formMensaje.valid">Escribir mensaje</button>
         </form>
     </div>
 

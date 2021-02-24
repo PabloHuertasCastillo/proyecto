@@ -1,6 +1,9 @@
 <div class="row">
 
     <div class="col">
+        <div class="alert alert-info" *ngIf='creado' role="alert">
+            <strong>{{mensaje}}</strong>
+        </div>
         <div *ngIf="formRegister.valid" class="alert alert-success" role="alert">
             El Formulario es valido
         </div>

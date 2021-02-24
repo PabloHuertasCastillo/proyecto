@@ -24,6 +24,9 @@ export class PerfilComponent implements OnInit {
   mostrarEditar = false;
   mostrarEliminar = false;
   mensajes: Mensaje [] = [];
+  mostrar = false;
+  mostrar2 = false;
+  mensaje: string;
 
   
 
@@ -49,7 +52,6 @@ export class PerfilComponent implements OnInit {
   cargarPerfil(){
     this.userService.obtenerPerfil().subscribe(
       respuesta => {
-        console.log(respuesta);
         this.usuario = respuesta;
       }, error => console.log(error)
     );
@@ -66,9 +68,15 @@ export class PerfilComponent implements OnInit {
   borrarMensaje(id){
     this.mensajeService.borrarMensaje(id).subscribe(
       respuesta => {
-        console.log(respuesta);
-        this.cargarMensajes()
-      }, error => console.log(error)
+        this.mensaje = respuesta;
+        this.mostrar = true;
+        this.cargarMensajes();
+        setTimeout(() => {
+          this.mostrar = false;
+        }, 2000);
+      }, error => {
+        this.mensaje = error.error.error;
+      }
     )
   }
 
@@ -101,8 +109,12 @@ export class PerfilComponent implements OnInit {
     formData.append('imagen', this.foto);
     this.userService.subirImagen(formData).subscribe(
       respuesta => {
-        console.log(respuesta);
-        this.cargarPerfil()
+        this.mensaje = respuesta;
+        this.mostrar2 = true;
+        setTimeout(() => {
+          this.mostrar2 = false;
+        }, 2000);
+        this.cargarPerfil();
       }
     )
   }
@@ -111,8 +123,20 @@ export class PerfilComponent implements OnInit {
     this.userService.editar(this.usuario).subscribe(
       respuesta => {
         this.mostrarEditar = false;
-        this.router.navigate(['/perfil']);
-      }, error => console.log(error)
+        this.mensaje = respuesta;
+        this.mostrar2 = true;
+        this.cargarPerfil();
+        setTimeout(() => {
+          this.mostrar2 = false;
+        }, 2000);
+      }, error => {
+        this.mensaje = error.error.error;
+        this.mostrar2 = true;
+        this.cargarPerfil();
+        setTimeout(() => {
+          this.mostrar2 = false;
+        }, 2000);
+      }
     );
   }
 
@@ -139,8 +163,20 @@ export class PerfilComponent implements OnInit {
     formData.append('imagen', this.formImagen.get('imagen').value);
     this.userService.subirImagen(formData).subscribe(
       respuesta => {
-        console.log(respuesta);
-      }, error => { console.log(error); }
+        this.mensaje = respuesta;
+        this.mostrar2 = true;
+        this.cargarPerfil();
+        setTimeout(() => {
+          this.mostrar2 = false;
+        }, 2000);
+      }, error => {
+        this.mensaje = error.error.error;
+        this.mostrar2 = true;
+        this.cargarPerfil();
+        setTimeout(() => {
+          this.mostrar2 = false;
+        }, 2000);
+      }
     );
   }
 
