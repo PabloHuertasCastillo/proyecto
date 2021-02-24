@@ -27,6 +27,8 @@ import { RegisterComponent } from './componentes/auth/register/register.componen
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { ListadousersComponent } from './componentes/listadousers/listadousers.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { ListadousersComponent } from './componentes/listadousers/listadousers.c
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'es'},

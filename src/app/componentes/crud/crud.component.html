@@ -44,7 +44,7 @@
                 <ul class="list-group my-2">
                     <p class="text-dark"><b>Las notas del usuario aparecerán en negrita</b>
                     </p>
-                    <li class="list-group-item" *ngFor="let nota of notas" (click)="notaSeleccionada = nota; nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" [ngClass]='{"text-dark bg-light":nota.idUser}'> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
+                    <li class="list-group-item" *ngFor="let nota of notas" (click)="notaSeleccionada = nota; nota.idUser ? formNuevo.patchValue(nota) : formNuevo.reset()" [ngClass]='{"text-dark bg-primary":nota.idUser}'> <b>{{nota.titulo}}</b> : {{nota.contenido}} </li>
                 </ul>
             </div>
         </div>

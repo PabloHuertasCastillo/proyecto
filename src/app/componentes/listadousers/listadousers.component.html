@@ -31,7 +31,7 @@
                 <input type="text" class="form-control" formControlName='mensaje' placeholder="Escribe tu mensaje">
             </div>
 
-            <button type="submit" class="btn btn-primary" [disabled]="!formMensaje.valid">Escribir mensaje</button>
+            <button type="submit" class="btn btn-primary" (click)="crearMensaje()" [disabled]="!formMensaje.valid">Escribir mensaje</button>
         </form>
     </div>
 

@@ -30,7 +30,7 @@ export class ListadousersComponent implements OnInit {
   obtenerUsuarios(): void {
     this.userService.obtenerTodos().subscribe(
       respuesta => {
-        console.log(respuesta);
+
         this.usuarios = respuesta;
       },
       error => console.log(error)

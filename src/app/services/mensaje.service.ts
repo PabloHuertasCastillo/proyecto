@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, observable } from 'rxjs';
-import { Note } from '../Modelos/note';
 import { Mensaje } from '../Modelos/mensaje';
 
 const url = 'http://localhost/backendphp/mensajes/';
@@ -24,8 +23,6 @@ export class MensajeService {
   borrarMensaje(id: number): Observable<any> {
     return this.http.delete(url + id);
   }
-
-
 
 }
 
