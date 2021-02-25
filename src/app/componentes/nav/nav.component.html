@@ -1,8 +1,3 @@
-<!-- Nav tabs -->
-
-
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <img src="assets/images/logo.png" alt="" width="50" class="d-inline-block align-top mx-2">
@@ -12,59 +7,39 @@
       </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/about">About</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ejercicios</a>
+                    <div class="dropdown-menu" style="">
+                        <a class="dropdown-item" routerLink="/">Home</a>
+                        <a class="dropdown-item" routerLink="/about">About</a>
+                        <a class="dropdown-item" routerLink="/loteria">Loteria</a>
+                        <a class="dropdown-item" routerLink="/tuberias">Tuberias</a>
+                        <a class="dropdown-item" routerLink="/estructuras">Estructuras</a>
+                        <a class="dropdown-item" routerLink="/formulario">Formulario Clase</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/loteria">Loteria</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">CRUD</a>
+                    <div class="dropdown-menu" style="">
+                        <a class="dropdown-item" routerLink="/crud-local">Notas-local</a>
+                        <a class="dropdown-item" routerLink="/contactos">Contactos-local</a>
+                        <a class="dropdown-item" routerLink="/crud">Notas con Back</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/tuberias">Tuberias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/estructuras">Estructuras</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/formulario">Formulario Clase</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/crud-local">Crud-local</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/contactos">Contactos-local</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/crud">Crud</a>
-                </li>
-                <ul class="nav justify-content-end">
-                    <ng-template [ngIf]='!comprobarToken()' [ngIfElse]="salir">
-                        <li class="nav-item float-right">
-                            <a class="nav-link" routerLink="/registro">Registro</a>
-                        </li>
-                        <li class="nav-item float-right">
-                            <a class="nav-link" routerLink="/login">Login</a>
-                        </li>
-
-                    </ng-template>
-                    <ng-template #salir>
-                        <li class="nav-item float-right">
-                            <a class="nav-link" routerLink="/perfil">Perfil</a>
-                        </li>
-                        <li class="nav-item float-right">
-                            <a class="nav-link" routerLink="/users">Ver Usuarios</a>
-                        </li>
-                        <li class="nav-item float-right">
-                            <a class="nav-link" (click)="doLogout()" routerLink='.'>Logout</a>
-                        </li>
-                    </ng-template>
-                </ul>
             </ul>
         </div>
+        <ul class="nav justify-content-end text-white">
+            <ng-template [ngIf]='!comprobarToken()' [ngIfElse]="salir">
+                <button type="button" routerLink="/registro" class="btn btn-link bg-white mx-1">Registro</button>
+
+                <button type="button" routerLink="/login" class="btn btn-link bg-white mx-1">Login</button>
+            </ng-template>
+            <ng-template #salir>
+                <button type="button" routerLink="/perfil" class="btn btn-link bg-white mx-1">Perfil</button>
+
+                <button type="button" routerLink="/users" class="btn btn-link bg-white mx-1">Ver usuarios</button>
+                <button type="button" (click)="doLogout()" routerLink='.' class="btn btn-link bg-white mx-1">Log-out</button>
+            </ng-template>
+        </ul>
     </div>
 </nav>
-
-<script>
-    $(document).ready(function() {
-        $(".dropdown-toggle").dropdown();
-    });
-</script>

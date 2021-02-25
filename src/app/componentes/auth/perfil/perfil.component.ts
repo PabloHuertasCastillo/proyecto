@@ -26,6 +26,7 @@ export class PerfilComponent implements OnInit {
   mensajes: Mensaje [] = [];
   mostrar = false;
   mostrar2 = false;
+  mostrar3 = false;
   mensaje: string;
 
   
@@ -69,10 +70,10 @@ export class PerfilComponent implements OnInit {
     this.mensajeService.borrarMensaje(id).subscribe(
       respuesta => {
         this.mensaje = respuesta;
-        this.mostrar = true;
+        this.mostrar3 = true;
         this.cargarMensajes();
         setTimeout(() => {
-          this.mostrar = false;
+          this.mostrar3 = false;
         }, 2000);
       }, error => {
         this.mensaje = error.error.error;
