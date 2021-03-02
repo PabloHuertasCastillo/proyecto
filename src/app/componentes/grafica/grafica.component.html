@@ -1,0 +1,19 @@
+<div>
+    <div class="col-12 border rounded shadow-sm bg-body border rounded p-3">
+        <h5 class="my-2">Insertar Contacto</h5>
+        <div class="row g-3 my-3">
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Dato 1</label>
+                <input type="text" class="form-control" id="inputPassword4" [(ngModel)]="nuevoContacto.apellido">
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Dato 2</label>
+                <input type="text" class="form-control" id="inputEmail4" [(ngModel)]="nuevoContacto.edad">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary my-2" (click)="insertarDatos()">Insertar datos</button>
+            </div>
+        </div>
+    </div>
+    <canvas id='secciongrafica'></canvas>
+</div>

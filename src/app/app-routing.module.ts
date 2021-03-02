@@ -16,6 +16,8 @@ import { LoginComponent } from './componentes/auth/login/login.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { UserRouterGuard } from './auth/user-router.guard';
 import { ListadousersComponent } from './componentes/listadousers/listadousers.component';
+import { GraficaComponent } from './Componentes/grafica/grafica.component';
+import { MapaComponent } from './Componentes/mapa/mapa.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -30,6 +32,8 @@ const routes: Routes = [
   {path: "contactos", component:CrudContactosComponent},
   {path: "registro", component:RegisterComponent},
   {path: "login", component:LoginComponent},
+  {path: "grafica", component:GraficaComponent},
+  {path: "mapa", component:MapaComponent},
   {path: "users", component:ListadousersComponent},
   {path: "perfil", component:PerfilComponent, canActivate:[UserRouterGuard]},
   {path: "**", component:HomeComponent},

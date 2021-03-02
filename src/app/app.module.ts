@@ -29,6 +29,8 @@ import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { ListadousersComponent } from './componentes/listadousers/listadousers.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { GraficaComponent } from './Componentes/grafica/grafica.component';
+import { MapaComponent } from './Componentes/mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { environment } from '../environments/environment';
     LoginComponent,
     RegisterComponent,
     PerfilComponent,
-    ListadousersComponent
+    ListadousersComponent,
+    GraficaComponent,
+    MapaComponent
   ],
   imports: [
     BrowserModule,
